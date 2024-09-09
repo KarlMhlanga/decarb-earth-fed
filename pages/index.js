@@ -41,7 +41,7 @@ export default function Home() {
   <span
     class="block border border-blue-600 bg-blue-600 px-12 py-3 transition-transform active:border-blue-500 active:bg-blue-500 group-hover:-translate-x-1 group-hover:-translate-y-1"
   >
-    Let's Get Started
+    LET'S BEGIN
   </span>
 </Link></div>   
       </main>

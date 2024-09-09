@@ -18,7 +18,7 @@ const data = {
 export default function DashboardGraphs() {
   return (
     <div className="max-w-lg mx-auto mt-8">
-      <h2 className="text-xl font-bold">Dashboard Overview</h2>
+      <h2 className="text-xl font-bold"> Overview</h2>
       <Bar data={data} />
     </div>
   );

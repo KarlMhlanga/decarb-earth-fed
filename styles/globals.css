@@ -15,11 +15,15 @@ p{
 }
 .bg-blue-600 {
   --tw-bg-opacity: 1;
-  background-color: #4d8248;
+  background-color: #5b9755;
 }
 
 button.group.relative.inline-block.text-sm.font-medium.text-white.focus\:outline-none.focus\:ring{
   width: 100%;
+}
+main.container.mx-auto.text-center.py-16 {
+  position: absolute;
+  top: 10rem;
 }
 
 @media (prefers-color-scheme: dark) {
