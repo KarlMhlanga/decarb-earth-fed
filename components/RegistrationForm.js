@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import axios from 'axios';
+import { useRouter } from 'next/router';
 
 export default function RegistrationForm() {
   const [formData, setFormData] = useState({
@@ -10,6 +12,8 @@ export default function RegistrationForm() {
     confirmPassword: '',
   });
 
+  const router = useRouter();
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -17,9 +21,33 @@ export default function RegistrationForm() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add form submission logic here
+    if (formData.password !== formData.confirmPassword) {
+      alert('Passwords do not match');
+      return;
+    }
+
+    try {
+      // Optionally hash the password here using bcryptjs
+      const response = await axios.post(
+        'https://ocec7olka5.execute-api.af-south-1.amazonaws.com/dev/testRegister',
+        {
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          entityType: formData.entityType,
+          email: formData.email,
+          password: formData.password, // Use hashedPassword if hashed
+        }
+      );
+
+      if (response.status === 200) {
+        router.push('/verify'); // Redirect to the verification page
+      }
+    } catch (error) {
+      console.error('Error registering user:', error);
+      alert('Registration failed. Please try again.');
+    }
   };
 
   return (
@@ -32,6 +60,7 @@ export default function RegistrationForm() {
           value={formData.firstName}
           onChange={handleChange}
           className="w-full px-3 py-2 border rounded"
+          required
         />
       </div>
       <div className="mb-4">
@@ -42,6 +71,7 @@ export default function RegistrationForm() {
           value={formData.lastName}
           onChange={handleChange}
           className="w-full px-3 py-2 border rounded"
+          required
         />
       </div>
       <div className="mb-4">
@@ -51,6 +81,7 @@ export default function RegistrationForm() {
           value={formData.entityType}
           onChange={handleChange}
           className="w-full px-3 py-2 border rounded"
+          required
         >
           <option value="">Select</option>
           <option value="ENTERPRISE">Enterprise</option>
@@ -66,6 +97,7 @@ export default function RegistrationForm() {
           value={formData.email}
           onChange={handleChange}
           className="w-full px-3 py-2 border rounded"
+          required
         />
       </div>
       <div className="mb-4">
@@ -76,6 +108,7 @@ export default function RegistrationForm() {
           value={formData.password}
           onChange={handleChange}
           className="w-full px-3 py-2 border rounded"
+          required
         />
       </div>
       <div className="mb-4">
@@ -86,11 +119,12 @@ export default function RegistrationForm() {
           value={formData.confirmPassword}
           onChange={handleChange}
           className="w-full px-3 py-2 border rounded"
+          required
         />
       </div>
       <button
         type="submit"
-        className="w-full px-4 py-2 text-white bg-blue-500 rounded"
+        className="w-full px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-700"
       >
         Register
       </button>
