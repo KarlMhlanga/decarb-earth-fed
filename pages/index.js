@@ -30,10 +30,20 @@ export default function Home() {
         <h1 className="text-4xl font-bold text-gray-800">decarb.earth</h1>
         <p className="mt-4 text-gray-600">Your journey to sustainability starts here.</p>
         <div className="mt-8">
-          <Link href="/register" className="px-6 py-3 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700">
+          {/* <Link href="/register" className="px-6 py-3 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700">
               Get Started
-          </Link>
+          </Link> */}
         </div>
+        <div className="mt-8"> <Link href="/register"
+  class="group relative inline-block text-sm font-medium text-white focus:outline-none focus:ring"
+>
+  <span class="absolute inset-0 border border-blue-600 group-active:border-blue-500"></span>
+  <span
+    class="block border border-blue-600 bg-blue-600 px-12 py-3 transition-transform active:border-blue-500 active:bg-blue-500 group-hover:-translate-x-1 group-hover:-translate-y-1"
+  >
+    Let's Get Started
+  </span>
+</Link></div>   
       </main>
     </div>
   );

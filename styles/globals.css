@@ -7,6 +7,9 @@
   --background: #ffffff;
   --foreground: #171717;
 }
+label.block.text-sm.font-medium {
+  color: black;
+}
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -15,6 +18,9 @@
   }
 }
 
+.bg-gray-100 {
+  background-color: #c6cad3 !important;
+}
 body {
   color: var(--foreground);
   background: var(--background);

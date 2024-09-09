@@ -30,7 +30,7 @@ export default function VerificationForm() {
   return (
     <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-8">
       <div className="mb-4">
-        <label className="block text-sm font-medium">Verification Code</label>
+        <label className="block text-sm font-medium">please enter your provided Verification Code below.</label>
         <input
           type="text"
           value={verificationCode}
@@ -39,12 +39,16 @@ export default function VerificationForm() {
           required
         />
       </div>
-      <button
-        type="submit"
-        className="w-full px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-700"
-      >
-        Verify
-      </button>
+      <div className="mt-8"> <button type="submit"
+  class="group relative inline-block text-sm font-medium text-white focus:outline-none focus:ring"
+>
+  <span class="absolute inset-0 border border-blue-600 group-active:border-blue-500"></span>
+  <span
+    class="block border border-blue-600 bg-blue-600 px-12 py-3 transition-transform active:border-blue-500 active:bg-blue-500 group-hover:-translate-x-1 group-hover:-translate-y-1"
+  >
+    Submit
+  </span>
+</button></div>  
     </form>
   );
 }
