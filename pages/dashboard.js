@@ -1,0 +1,12 @@
+import Navbar from '../components/Navbar';
+import DashboardGraphs from '../components/DashboardGraphs';
+
+export default function Dashboard() {
+  return (
+    <>
+      <Navbar />
+      <h1>Welcome, [User]</h1>
+      <DashboardGraphs />
+    </>
+  )
+}
