@@ -9,17 +9,17 @@ export default function Home() {
         <ul className="flex space-x-6">
           <li>
             <Link href="/">
-              Home
+              HOME
             </Link>
           </li>
           <li>
             <Link href="/verify">
-              Verify
+              VERIFY
             </Link>
           </li>
           <li>
             <Link href="/dashboard">
-              Dashboard
+              DASHBOARD
             </Link>
           </li>
         </ul>
@@ -27,7 +27,7 @@ export default function Home() {
     </header>
 
       <main className="container mx-auto text-center py-16">
-        <h1 className="text-4xl font-bold text-gray-800">Welcome to Decarb Earth</h1>
+        <h1 className="text-4xl font-bold text-gray-800">decarb.earth</h1>
         <p className="mt-4 text-gray-600">Your journey to sustainability starts here.</p>
         <div className="mt-8">
           <Link href="/register" className="px-6 py-3 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700">
