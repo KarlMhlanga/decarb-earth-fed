@@ -1,18 +1,21 @@
+import { Bar } from 'react-chartjs-2';
+
+const data = {
+  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  datasets: [
+    {
+      label: '# of Votes',
+      data: [12, 19, 3, 5, 2, 3, 7],
+      backgroundColor: 'rgba(75, 192, 192, 0.6)',
+    },
+  ],
+};
+
 export default function DashboardGraphs() {
-    return (
-      <div className="p-6">
-        <h2 className="text-xl mb-4">Your Dashboard</h2>
-        <div className="mb-6">
-          <h3>Bar Graph</h3>
-          {/* Placeholder for Bar Graph */}
-          <div className="h-48 bg-gray-200"></div>
-        </div>
-        <div>
-          <h3>Scatter Plot</h3>
-          {/* Placeholder for Scatter Plot */}
-          <div className="h-48 bg-gray-200"></div>
-        </div>
-      </div>
-    )
-  }
-  
+  return (
+    <div className="max-w-lg mx-auto mt-8">
+      <h2 className="text-xl font-bold">Dashboard Overview</h2>
+      <Bar data={data} />
+    </div>
+  );
+}
