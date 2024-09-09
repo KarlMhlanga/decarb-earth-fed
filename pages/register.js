@@ -28,7 +28,8 @@ export default function Register() {
     </header>
 
       <main className="container mx-auto py-16">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">Register</h2>
+        <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">REGISTER</h2>
+        <p>Please fill out the form below in order to join our community!  </p>
         <RegistrationForm />
       </main>
     </div>
