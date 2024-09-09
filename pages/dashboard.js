@@ -1,4 +1,4 @@
-import Navbar from '../components/navbar';
+import Navbar from '../components/Navbar';
 import DashboardGraphs from '../components/DashboardGraphs';
 
 export default function Dashboard() {
@@ -10,6 +10,8 @@ export default function Dashboard() {
         <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">Welcome, [User]!</h2>
         <DashboardGraphs />
       </main>
+
+      
     </div>
   );
 }
