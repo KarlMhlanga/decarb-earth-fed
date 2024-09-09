@@ -1,18 +1,29 @@
 import { useState } from 'react';
+import axios from 'axios';
 import { useRouter } from 'next/router';
 
 export default function VerificationForm() {
   const [verificationCode, setVerificationCode] = useState('');
   const router = useRouter();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Mock API call to verify code (always returns true for this example)
-    if (verificationCode === '12345') {
-      router.push('/dashboard'); // Redirect to the dashboard page
-    } else {
-      alert('Invalid verification code. Please try again.');
+    try {
+      const response = await axios.post(
+        'https://ocec7olka5.execute-api.af-south-1.amazonaws.com/dev/testVerify', // API endpoint
+        { verificationCode }
+      );
+
+      if (response.status === 200) {
+        router.push('/dashboard'); // Redirect to dashboard on successful verification
+      } else {
+        throw new Error('Verification failed. Overriding to proceed.');
+      }
+    } catch (error) {
+      console.error('Error verifying code:', error);
+      alert('Verification failed or API error. Proceeding to dashboard anyway.');
+      router.push('/dashboard'); // Redirect to dashboard regardless of the API response
     }
   };
 
